@@ -22,6 +22,9 @@
 # set $mod to super key
 set $mod Mod4
 
+# set caps_lock = super
+exec --no-startup-id setxkbmap -option caps:hyper
+
 # Set Font for Window Titles.
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font xft:Ubuntu Sans 9
@@ -48,7 +51,7 @@ bindsym Print exec scrot -q 100
 
 # Primary paste
 # TODO Not working
-bindsym $mod+Shift+V exec sh -c 'xdotool type "xsel"'
+#bindsym $mod+Shift+V exec sh -c 'xdotool type "xsel"'
 #bindsym $mod+Shift+b exec sh -c 'xdotool type "xsel"'
 #bindsym $mod+b exec sh -c 'xsel | -xsendevent -file 2>/dev/null'
 
@@ -180,12 +183,12 @@ bindsyn XF86AudioPlay exec mocp -G
 
 # AUTOSTART
 ## automatically starting applications on i3 startup
-exec dropbox start  # Dropbox
+exec --no-startup-id dropbox start  # Dropbox
 #exec nm-applet     # Network Manager
 
 # Disable XORG Screensaver
-exec xset s off
-exec xset -dpms
+exec --no-startup-id xset s off
+exec --no-startup-ud xset -dpms
 
 # Caps_Lock = Super
 exec setxkbmap -option caps:hyper
