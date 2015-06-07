@@ -15,20 +15,11 @@
 # mod4        n/a
 # mod5        n/a
 
-# Media Keys:
-# http://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols
-# http://cgit.freedesktop.org/xorg/proto/x11proto/tree/XF86keysym.h
-
 # set $mod to super key
 set $mod Mod4
 
-# set caps_lock = super
-exec --no-startup-id setxkbmap -option caps:hyper
-
 # Set Font for Window Titles.
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font xft:Ubuntu Sans 9
-#font xft:Monaco 10
+font xft:Monaco 10
 
 # And now for all the shortcuts:
 
@@ -36,24 +27,19 @@ font xft:Ubuntu Sans 9
 bindsym $mod+q kill
 
 # Lock and suspend
-#bindsym $mod+o exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d & sudo pm-suspend
+bindsym $mod+o exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d & sudo pm-suspend
 
 # Lock Computer
-bindsym $mod+l exec i3lock -i ~/ubuntu_white_logo_150.png -c 000000 -d
-#bindsym $mod+l exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
-#bindsym Control+Mod1+L exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
+bindsym $mod+l exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
+bindsym Control+Mod1+L exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
 
 # Print Screen = Screenshot
 bindsym Print exec scrot -q 100
-# bindsym Control+Print exec scrot -q 100 # not working
 
-#bindsym Control+Space exec dmenu_run
-
-# Primary paste
-# TODO Not working
-#bindsym $mod+Shift+V exec sh -c 'xdotool type "xsel"'
-#bindsym $mod+Shift+b exec sh -c 'xdotool type "xsel"'
-#bindsym $mod+b exec sh -c 'xsel | -xsendevent -file 2>/dev/null'
+# Volume up / down / mute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle; exec amixer -q set Headphone unmute; exec amixer -q set Speaker unmute # does not work proberbly
 
 # Do not focus on window, on mouse hover
 focus_follows_mouse no
@@ -62,7 +48,8 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec uxterm
+# bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xterm
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -145,17 +132,17 @@ mode "resize" {
         # when pressing left, the window is resized so that it has
         # more space on its left
 
-        bindsym Left resize shrink left 10 px or 10 ppt
-        bindsym Shift+Left resize grow   left 10 px or 10 ppt
+        bindsym Left resize shrink left 10 px
+        bindsym Shift+Left resize grow left 10 px
 
         bindsym Down resize shrink down 10 px or 10 ppt
-        bindsym Shift+Down resize grow   down 10 px or 10 ppt
+        bindsym Shift+Down resize grow down 10 px or 10 ppt
 
         bindsym Up resize shrink up 10 px or 10 ppt
-        bindsym Shift+Up resize grow   up 10 px or 10 ppt
+        bindsym Shift+Up resize grow up 10 px or 10 ppt
 
-        bindsym Right resize shrink right 10 px or 10 ppt
-        bindsym Shift+Right resize grow   right 10 px or 10 ppt
+        bindsym Right resize shrink right 10 px
+        bindsym Shift+Right resize grow right 10 px
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -164,51 +151,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# MEDIA
-## keycode 121 = XF86AudioMute
-## keycode 122 = XF86AudioLowerVolume
-## keycode 123 = XF86AudioRaiseVolume
-## keycode 171 = XF86AudioNext
-## Keycode 172 = XF86AudioPlay
-## Keycode 173 = XF86AudioPrev
-## Keycode 174 = XF86AudioStop
-## Sound
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5- unmute
-bindsym XF86AudioMute        exec amixer -q set Master toggle # does not work probably
-## Mocp
-bindsyn XF86AudioNext exec mocp -f
-bindsyn XF86AudioPrev exec mocp -r
-bindsyn XF86AudioPlay exec mocp -G
-
 # AUTOSTART
-## automatically starting applications on i3 startup
-exec --no-startup-id dropbox start  # Dropbox
-#exec nm-applet     # Network Manager
+# automatically starting applications on i3 startup
 
-# Disable XORG Screensaver
+exec --no-startup-id dropbox start # Start Dropbox
+exec --no-startup-id nm-applet -sm-disable # Start  Network Manager
+
+# Disable Screen saver
 exec --no-startup-id xset s off
-exec --no-startup-ud xset -dpms
+exec --no-startup-id xset -dpms
 
-# Caps_Lock = Super
-exec setxkbmap -option caps:hyper
+exec --no-startup-id xsetroot -solid '#000' # Set background color
 
-# Local keyboard
-exec setxkbmap dk
-
-
-# THEME
-
-# background
-exec --no-startup-id xsetroot -solid "#333333"
+# Reset Caps_Lock as Super
+exec --no-startup-id setxkbmap -option caps:hyper
 
 # Interface
-#colour class              border    backgr.    text       indicator
-# client.focused             #4c7899   #285577    #ffffff    #2e9ef4
 client.focused             #4c7899   #0373bb    #ffffff    #2e9ef4
 client.focused_inactive    #333333   #5f676a    #ffffff    #484e50
 client.unfocused           #333333   #222222    #888888    #292d2e
 client.urgent              #2f343a   #900000    #ffffff    #900000
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -226,3 +189,5 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
     }
 }
+
+
