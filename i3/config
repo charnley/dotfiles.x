@@ -40,6 +40,8 @@ bindsym Print exec scrot -q 100
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle; exec amixer -q set Headphone unmute; exec amixer -q set Speaker unmute # does not work proberbly
+bindsym Control+Up           exec amixer -q sset Master 2%+ unmute
+bindsym Control+Down         exec amixer -q sset Master 2%- unmute
 
 
 # Sreen brightness controls
