@@ -23,6 +23,10 @@ xterm*colorBD:               #FFFFFF
 xterm*colorUL:               #CCCC66
 
 
+! Disable boldmode
+XTerm*boldMode: false
+
+
 !------------ VisiTacky ------------!
 !!BLACK
 xterm*color0:               #666666
