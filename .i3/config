@@ -57,7 +57,10 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec uxterm
+
+# start a sunray terminal
+bindsym $mod+Shift+Return exec uxterm -e ~/bin/sunray --noclose
 
 # kill focused window
 bindsym $mod+Shift+Q kill
