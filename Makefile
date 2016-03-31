@@ -1,9 +1,9 @@
 
 all:
-	cp .gtk-bookmarks ~/
 	cp -r bin ~/
-	cp dunst ~/.config/
+	cp -r dunst ~/.config/
 	cp -r .i3 ~/
+	cp .gtk-bookmarks ~/
 	cp .i3status.conf ~/
 	cp .Xresources ~/
 
