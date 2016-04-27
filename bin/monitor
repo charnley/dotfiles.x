@@ -6,28 +6,25 @@ xrandr --output LVDS1 --auto
 
 if [ "$1" == "left" ];
 then
-  echo "Turning external monitor on"
-  xrandr --output DP1 --auto --left-of LVDS1
+    xrandr --output DP1 --auto --left-of LVDS1
 fi
 
 if [ "$1" == "copy" ];
 then
-  echo "Turning external monitor on"
-  xrandr --output DP1 --auto --same-as LVDS1
+    xrandr --output DP1 --auto --same-as LVDS1
 fi
 
 if [ "$1" == "off" ];
 then
-  echo "Turning external monitor off"
-  xrandr --output DP1 --off
+    xrandr --output DP1 --off
 fi
 
 if [ "$1" == "" ];
 then
-  echo "PLEASE STATE MONITOR on OR off."
-  exit
+    echo "Usage: monitor [left|copy|off]"
+    exit
 fi
 
 # Retart I3 to get panels back
-i3 restart > /dev/null 2> /dev/null
+i3 restart
 
