@@ -1,7 +1,7 @@
 
 # Dotfiles for i3 Desktop Enviroment
 
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/charnley/dotfiles.x/master/scrot.png)
 
 
 I seperated my dotfiles for my X enviroment and terminal stuff. This repo is only for my desktop envirment.
