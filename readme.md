@@ -1,19 +1,17 @@
 
-# Dotfiles for my desktop enviroment
+# Dotfiles for i3 Desktop Enviroment
 
-Mostly files for my i3 setup
+![Screenshot]()
 
-# TODO
 
-Add i3status
+I seperated my dotfiles for my X enviroment and terminal stuff. This repo is only for my desktop envirment.
 
-# Setup
-
-    ./setup
+I run i3wm on Debian.
 
 
 # Appearance
 
-    lxappearance
+Want to change the apperance of GTK easily? Then apt-get and run
 
+    lxappearance
 
