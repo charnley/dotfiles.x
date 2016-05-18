@@ -10,6 +10,7 @@ unzip mononoki.zip
 cp *.ttf ~/.fonts
 
 cd ..
-# rm -rf mononoki
+rm -rf mononoki
 
 fc-cache -vf ~/.fonts
+
