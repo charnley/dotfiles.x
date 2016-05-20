@@ -12,5 +12,3 @@ cp *.ttf ~/.fonts
 cd ..
 rm -rf mononoki
 
-fc-cache -vf ~/.fonts
-
