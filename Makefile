@@ -1,6 +1,9 @@
 
 all:
 
+update:
+	xrdb -merge ~/.Xresources
+
 symlink:
 	ln -s `pwd`/i3status ~/.i3status.conf
 	mkdir ~/.i3
@@ -25,5 +28,4 @@ fonts:
 	./setup_font_mononoki.sh
 	./setup_font_fira_sans.sh
 	fc-cache -vf ~/.fonts
-
 
