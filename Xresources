@@ -1,6 +1,6 @@
 ! Use a nice truetype font and suze by default
 xterm*faceName: Monaco
-xterm*faceSize: 12
+xterm*faceSize: 10
 
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 xterm*loginshell: true
