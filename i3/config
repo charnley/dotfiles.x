@@ -69,6 +69,11 @@ bindsym $mod+Shift+Q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -b -fn -misc-*-*-*-*-*-18-*-*-*-*-*-*-*
 
+# Disable window bar
+# Don't worry, window-bar is there for tabs and stack
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
