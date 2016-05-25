@@ -177,7 +177,7 @@ exec --no-startup-id nm-applet -sm-disable # Start  Network Manager
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
-exec --no-startup-id xsetroot -solid '#111' # Set background color
+exec --no-startup-id xsetroot -solid '#232323' # Set background color
 
 # Reset Caps_Lock as Super
 exec --no-startup-id setxkbmap -option caps:hyper
