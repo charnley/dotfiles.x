@@ -57,11 +57,17 @@ xterm*color14:              #66FFCC
 xterm*color7:               #CCCCCC
 xterm*color15:              #FFFFFF
 
+! https://awhan.wordpress.com/2010/06/20/alt-key-does-not-work-in-xterm-in-archlinux/
+! http://www.humbug.in/2010/enable-alt-key-in-xterm/
+! Key the alt ket working
+! STILL DOES NOT WORK
+! TODO
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
+
 !
-! FROM:
 ! http://blog.ssokolow.com/archives/2011/05/01/modernizing-xterms-paste/
 !
-
 ! {{{ Quick Reference
 ! !
 ! ! Scrolling:
