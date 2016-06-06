@@ -58,7 +58,7 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec gnome-terminal
 # NOTE add +aw for no wordwrap in stdout
-bindsym $mod+Return exec uxterm
+bindsym $mod+Return exec rxvt
 
 # start a sunray terminal
 bindsym $mod+Shift+Return exec uxterm -e ~/bin/sunray --noclose

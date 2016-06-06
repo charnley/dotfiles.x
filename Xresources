@@ -1,3 +1,67 @@
+
+! Colours
+*background:            #111111
+*foreground:            #CCCCCC
+*cursorColor:           #999999
+*colorBD:               #FFFFFF
+*colorUL:               #CCCC66
+
+!!BLACK
+*color0:               #666666
+*color8:               #999999
+!!RED
+*color1:               #CC3366
+*color9:               #FF6699
+!!GREEN
+*color2:               #66CC33
+*color10:              #99FF66
+!!YELLOW
+*color3:               #CC9933
+*color11:              #FFCC66
+!!BLUE
+*color4:               #3366CC
+*color12:              #6699FF
+!!MAGENTA
+*color5:               #9933CC
+*color13:              #CC66FF
+!!CYAN
+*color6:               #33CC99
+*color14:              #66FFCC
+!!WHITE
+*color7:               #CCCCCC
+*color15:              #FFFFFF
+
+
+! RXVT Settings
+! https://wiki.archlinux.org/index.php/rxvt-unicode
+! rxvt-unicode-256-color
+
+URxvt*font: xft:mononoki:size=10:antialias=true
+URxvt*depth: 32
+URxvt*buffered: true
+URxvt*scrollBar: false
+URxvt*loginShell: true
+! Enable Shift-PageUp/Down in screen
+Urxvt*secondaryScroll: true
+URxvt*saveLines: 5000
+URxvt*termName: rxvt-unicode
+URxvt*borderless: 1
+! URxvt.matcher.button: 1
+
+
+! Copy paste
+! https://nixmeal.wordpress.com/2012/07/24/copypaste-text-in-urxvt-rxvt-unicode-using-keyboard/
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
+
+
+
+
+
+
+! Xterm Settings
+
 ! Use a nice truetype font and suze by default
 xterm*faceName: Monaco
 xterm*faceSize: 10
@@ -21,39 +85,6 @@ xterm*boldFont: fixed
 XTerm*allowBoldFonts: false
 XTerm*boldMode: false
 
-! Colours
-xterm*background:            #111111
-xterm*foreground:            #CCCCCC
-xterm*cursorColor:           #999999
-xterm*colorBD:               #FFFFFF
-xterm*colorUL:               #CCCC66
-
-
-!------------ VisiTacky ------------!
-!!BLACK
-xterm*color0:               #666666
-xterm*color8:               #999999
-!!RED
-xterm*color1:               #CC3366
-xterm*color9:               #FF6699
-!!GREEN
-xterm*color2:               #66CC33
-xterm*color10:              #99FF66
-!!YELLOW
-xterm*color3:               #CC9933
-xterm*color11:              #FFCC66
-!!BLUE
-xterm*color4:               #3366CC
-xterm*color12:              #6699FF
-!!MAGENTA
-xterm*color5:               #9933CC
-xterm*color13:              #CC66FF
-!!CYAN
-xterm*color6:               #33CC99
-xterm*color14:              #66FFCC
-!!WHITE
-xterm*color7:               #CCCCCC
-xterm*color15:              #FFFFFF
 
 
 ! https://awhan.wordpress.com/2010/06/20/alt-key-does-not-work-in-xterm-in-archlinux/
@@ -101,13 +132,3 @@ XTerm*eightBitInput: false
 ! http://superuser.com/questions/453993/xterm-key-translations
 ! http://superuser.com/questions/914817/separate-mappings-for-tab-and-c-i-in-inputrc
 
-
-
-
-! rxvt
-
-! Copy paste
-! https://nixmeal.wordpress.com/2012/07/24/copypaste-text-in-urxvt-rxvt-unicode-using-keyboard/
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.iso14755: False
-URxvt.perl-ext-common: default,clipboard
