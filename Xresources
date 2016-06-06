@@ -8,13 +8,13 @@ xterm*loginshell: true
 ! I like a LOT of scrollback...
 xterm*savelines: 16384
 
-! double-click to select whole URLs :D
+! double-click to select whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
 
-! I dont like bold text in terminal
+! I REALLY dont like bold text in terminal
 ! Disable boldmode
 xterm*font: fixed
 xterm*boldFont: fixed
@@ -27,8 +27,6 @@ xterm*foreground:            #CCCCCC
 xterm*cursorColor:           #999999
 xterm*colorBD:               #FFFFFF
 xterm*colorUL:               #CCCC66
-
-
 
 
 !------------ VisiTacky ------------!
@@ -56,6 +54,7 @@ xterm*color14:              #66FFCC
 !!WHITE
 xterm*color7:               #CCCCCC
 xterm*color15:              #FFFFFF
+
 
 ! https://awhan.wordpress.com/2010/06/20/alt-key-does-not-work-in-xterm-in-archlinux/
 ! http://www.humbug.in/2010/enable-alt-key-in-xterm/
@@ -96,3 +95,19 @@ XTerm*eightBitInput: false
                     ~Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
                      Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1)
 
+
+! Translations
+! http://www.ibb.net/~anne/keyboard.html
+! http://superuser.com/questions/453993/xterm-key-translations
+! http://superuser.com/questions/914817/separate-mappings-for-tab-and-c-i-in-inputrc
+
+
+
+
+! rxvt
+
+! Copy paste
+! https://nixmeal.wordpress.com/2012/07/24/copypaste-text-in-urxvt-rxvt-unicode-using-keyboard/
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
