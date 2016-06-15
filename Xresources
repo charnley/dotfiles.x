@@ -32,6 +32,7 @@
 *color15:              #FFFFFF
 
 
+
 ! RXVT Settings
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! rxvt-unicode-256-color
@@ -44,25 +45,69 @@ URxvt*loginShell: true
 ! Enable Shift-PageUp/Down in screen
 Urxvt*secondaryScroll: true
 URxvt*saveLines: 5000
-URxvt*termName: rxvt-unicode
+! URxvt*termName: rxvt-unicode
 URxvt*borderless: 1
 ! URxvt.matcher.button: 1
+URxvt.iso14755: False
+URxvt.iso14755_52: false
 
+
+! Keys
+! Have Alt/Control-<arrow> behave like xterm
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+URxvt.keysym.M-Down:        \033[1;3B
+URxvt.keysym.M-Up:          \033[1;3A
+URxvt.keysym.M-Left:        \033[1;3D
+URxvt.keysym.M-Right:       \033[1;3C
+
+! Remap control+i
+! map with \e[a5i
+! http://unix.stackexchange.com/questions/203418/bind-c-i-and-tab-keys-to-different-commands-in-terminal-applications-via-inputr
+! URxvt.keysym.Control-Shift-i: \033[a5i
+! URxvt.keysym.Control-i: \033w
+! URxvt.keysym.Control-w: \033w
+
+! Home / End
+! URxvt.keysym.Home: \033[1~
+! URxvt.keysym.End: \033[4~
+! URxvt.keysym.KP_Home: \033[1~
+! URxvt.keysym.KP_End:  \033[4~
+
+! My laptop has home/end a long way from my arrows
+URxvt.keysym.Control-M-Left: \033[1~
+URxvt.keysym.Control-M-Right: \033[4~
+
+! Shift + tab working
+URxvt.keysym.C-Tab: \033{
+URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
+! ! disable ctrl-shit
+URxvt*iso14755: False
+URxvt*iso14755_52: False
 
 ! Copy paste
 ! https://nixmeal.wordpress.com/2012/07/24/copypaste-text-in-urxvt-rxvt-unicode-using-keyboard/
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard
 
+! Fonts on the fly
+! Needs the 'urxvt-font-size-git' package and 'font-size' in perl-ext-common.
 
+! Increase font size Ctrl+'+' for all the URxvt tabs and windows (Plus keysum
+! does not work).
+! URxvt.keysym.Control-0x2b: perl:font-size:increase
 
-
+! Decrease font size Ctrl+'-' for all the URxvt tabs and windows (Minus keysum
+! does not work).
+! URxvt.keysym.Control-0x2d: perl:font-size:decrease
 
 
 ! Xterm Settings
 
-! Use a nice truetype font and suze by default
+! Use a nice truetype font and size by default
 xterm*faceName: Monaco
 xterm*faceSize: 10
 
@@ -92,8 +137,8 @@ XTerm*boldMode: false
 ! Key the alt ket working
 ! STILL DOES NOT WORK
 ! TODO
-XTerm*metaSendsEscape: true
-XTerm*eightBitInput: false
+! XTerm*metaSendsEscape: true
+! XTerm*eightBitInput: false
 
 !
 ! http://blog.ssokolow.com/archives/2011/05/01/modernizing-xterms-paste/
@@ -116,7 +161,7 @@ XTerm*eightBitInput: false
 ! !
 ! }}}
 
-*VT100.Translations: #override \
+xterm*VT100.Translations: #override \
                     Shift <Key>Up:              scroll-back(1) \n\
                     Shift <Key>Down:            scroll-forw(1) \n\
                     ~Meta Shift Ctrl <Key>V:    insert-selection(CLIPBOARD) \n\

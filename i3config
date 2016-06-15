@@ -61,7 +61,7 @@ floating_modifier $mod
 bindsym $mod+Return exec rxvt
 
 # start a sunray terminal
-bindsym $mod+Shift+Return exec uxterm -e ~/bin/sunray --noclose
+bindsym $mod+Shift+Return exec rxvt -e ~/bin/sunray --noclose
 
 # kill focused window
 bindsym $mod+Shift+Q kill
