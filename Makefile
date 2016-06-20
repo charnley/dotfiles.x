@@ -18,6 +18,7 @@ symlink_clean:
 
 depends:
 	# TODO add desktop dependencies
+	sudo apt-get install rxvt-unicode-256color
 
 dropbox:
 	./setup_drobox.sh
