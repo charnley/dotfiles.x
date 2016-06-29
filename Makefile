@@ -18,7 +18,11 @@ symlink_clean:
 
 depends:
 	# TODO add desktop dependencies
-	sudo apt-get install rxvt-unicode-256color
+	sudo apt-get install rxvt-unicode-256color # nice temrinal
+	
+	# rxvt depends
+	sudo apt-get install xclip # copy paste for terminal
+	sudo cp rxvt/urxvtclip /usr/lib/urxvt/perl/clipboard
 
 dropbox:
 	./setup_drobox.sh

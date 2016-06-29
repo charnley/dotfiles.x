@@ -19,7 +19,8 @@
 set $mod Mod4
 
 # Set Font for Window Titles.
-font xft:Monaco 11
+# font xft:Monaco 11
+font xft:mononoki 12
 
 # And now for all the shortcuts:
 

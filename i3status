@@ -8,6 +8,7 @@ general {
 
 order += "wireless wlan0"
 order += "ethernet eth0"
+order += "ethernet eth1"
 order += "path_exists VPN"
 order += "volume master"
 order += "disk /"
@@ -18,13 +19,19 @@ order += "tztime local"
 
 wireless wlan0 {
     format_up = "(%quality at %essid) %ip"
-    format_down = "wifi"
+    format_down = "wlan0"
 }
 
 ethernet eth0 {
     # if you use %speed, i3status requires root privileges
     format_up = "%ip (%speed)"
-    format_down = "cable"
+    format_down = "eth0"
+}
+
+ethernet eth1 {
+    # if you use %speed, i3status requires root privileges
+    format_up = "%ip (%speed)"
+    format_down = "eth1"
 }
 
 battery 0 {

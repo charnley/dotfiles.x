@@ -37,7 +37,7 @@
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! rxvt-unicode-256-color
 
-URxvt*font: xft:mononoki:size=10:antialias=true
+URxvt*font: xft:mononoki:size=12:antialias=true
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*scrollBar: false
