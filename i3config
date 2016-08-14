@@ -44,6 +44,9 @@ bindsym XF86AudioMute exec amixer -q set Master toggle; exec amixer -q set Headp
 bindsym Control+Up           exec amixer -q sset Master 2%+ unmute
 bindsym Control+Down         exec amixer -q sset Master 2%- unmute
 
+# Hivemind setup
+bindsym Control+Shift+Up exec ~/bin/hivemind_volume up
+bindsym Control+Shift+Down exec ~/bin/hivemind_volume down
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
