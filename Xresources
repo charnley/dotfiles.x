@@ -1,10 +1,17 @@
 
-! Colours
-*background:            #111111
-*foreground:            #CCCCCC
-*cursorColor:           #999999
-*colorBD:               #FFFFFF
-*colorUL:               #CCCC66
+! Terminal Color scheme
+URxvt*background:            #111111
+URxvt*foreground:            #CCCCCC
+URxvt*cursorColor:           #999999
+URxvt*colorBD:               #FFFFFF
+URxvt*colorUL:               #CCCC66
+
+xterm*background:            #111111
+xterm*foreground:            #CCCCCC
+xterm*cursorColor:           #999999
+xterm*colorBD:               #FFFFFF
+xterm*colorUL:               #CCCC66
+
 
 !!BLACK
 *color0:               #666666
@@ -32,7 +39,6 @@
 *color15:              #FFFFFF
 
 
-
 ! RXVT Settings
 ! https://wiki.archlinux.org/index.php/rxvt-unicode
 ! rxvt-unicode-256-color
@@ -50,7 +56,8 @@ URxvt*borderless: 1
 ! URxvt.matcher.button: 1
 URxvt.iso14755: False
 URxvt.iso14755_52: false
-
+! Spacing issue in rxvt
+URxvt.letterSpace: -1
 
 ! Keys
 ! Have Alt/Control-<arrow> behave like xterm
