@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# dep
+# libnotify-bin
+# notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
+# notify-send 'sunray' 'is burning' --ugency=critical
+
+# Check if there is internet connection
+function check_internet
+{
+    ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && echo 1 || echo 0
+}
+
+if [ `check_internet` == 1 ]
+then
+    ssh sunray "sunset_status"
+fi
+
