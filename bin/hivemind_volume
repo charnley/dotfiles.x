@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# dep
+# libnotify-bin
+# notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
+
+if [ $1 == "up" ]; then
+    ssh hivemind "amixer -q set Master 2%+"
+    notify-send "Hivemind volume increased"
+    exit 4
+fi
+
+if [ $1 == "down" ]; then
+    ssh hivemind "amixer -q set Master 2%-"
+    notify-send "Hivemind volume increased"
+    exit 4
+fi
+
