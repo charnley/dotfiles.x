@@ -181,7 +181,8 @@ exec --no-startup-id nm-applet -sm-disable # Start  Network Manager
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
-exec --no-startup-id xsetroot -solid '#232323' # Set background color
+# Set background color
+exec --no-startup-id xsetroot -solid '#222222'
 
 # Reset Caps_Lock as Super
 exec --no-startup-id setxkbmap -option caps:hyper
@@ -203,10 +204,11 @@ bar {
         statusline #dcdcdc
         separator  #666666
 
-        focused_workspace  #4c7899 #0373bb #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
+        #                  border  bg      font
+        focused_workspace  #0373bb #0373bb #ffffff
+        active_workspace   #5f676a #5f676a #ffffff
+        inactive_workspace #222222 #222222 #888888
+        urgent_workspace   #900000 #900000 #ffffff
     }
 }
 

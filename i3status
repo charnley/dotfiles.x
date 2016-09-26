@@ -7,7 +7,7 @@ general {
 }
 
 order += "wireless wlan0"
-order += "ethernet eth0"
+# order += "ethernet eth0"
 order += "ethernet eth1"
 order += "path_exists VPN"
 order += "volume master"
