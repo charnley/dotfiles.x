@@ -28,21 +28,21 @@ font xft:mononoki 12
 bindsym $mod+q kill
 
 # Lock and suspend
-bindsym $mod+o exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d & sudo pm-suspend
+bindsym $mod+o exec i3lock -c 000000 -d & sudo pm-suspend
 
 # Lock Computer
-bindsym $mod+l exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
-bindsym Control+Mod1+L exec i3lock -i ~/bin/settings/digafi_blackDark_white.png -c 000000 -d
+bindsym $mod+l exec i3lock -c 000000 -d
+bindsym Control+Mod1+L exec i3lock -c 000000 -d
 
 # Print Screen = Screenshot
 bindsym Print exec scrot -q 100
 
 # Volume up / down / mute
+bindsym Control+Up           exec amixer -q sset Master 2%+ unmute
+bindsym Control+Down         exec amixer -q sset Master 2%- unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle; exec amixer -q set Headphone unmute; exec amixer -q set Speaker unmute # does not work proberbly
-bindsym Control+Up           exec amixer -q sset Master 2%+ unmute
-bindsym Control+Down         exec amixer -q sset Master 2%- unmute
 
 # Hivemind setup
 bindsym Control+Shift+Up exec ~/bin/hivemind_volume up
@@ -51,7 +51,6 @@ bindsym Control+Shift+Down exec ~/bin/hivemind_volume down
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-
 
 # Do not focus on window, on mouse hover
 focus_follows_mouse no
@@ -200,7 +199,7 @@ bar {
     position top
     status_command i3status
     colors {
-        background #232323
+        background #222222
         statusline #dcdcdc
         separator  #666666
 
