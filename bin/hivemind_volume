@@ -6,13 +6,13 @@
 
 if [ $1 == "up" ]; then
     ssh hivemind "amixer -q set Master 2%+"
-    notify-send "Hivemind" "volume increased"
+    notify-send " " "hivemind volume increased"
     exit 4
 fi
 
 if [ $1 == "down" ]; then
     ssh hivemind "amixer -q set Master 2%-"
-    notify-send "Hivemind" "volume decreased"
+    notify-send " " "hivemind volume decreased"
     exit 4
 fi
 
