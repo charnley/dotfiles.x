@@ -187,7 +187,7 @@ exec --no-startup-id xsetroot -solid '#222222'
 exec --no-startup-id setxkbmap -option caps:hyper
 
 # Interface                border    title      color
-client.focused             #4c7899   #0373bb    #ffffff    #2e9ef4
+client.focused             #0373bb   #0373bb    #ffffff    #2e9ef4
 client.focused_inactive    #222222   #222222    #ffffff    #484e50
 client.unfocused           #222222   #222222    #888888    #292d2e
 client.urgent              #2f343a   #900000    #ffffff    #900000
