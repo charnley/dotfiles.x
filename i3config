@@ -175,6 +175,7 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id dropbox start # Start Dropbox
 exec --no-startup-id nm-applet -sm-disable # Start  Network Manager
+exec --no-startup-id blueman-applet # Start bluetooth manager
 
 # Disable Screen saver
 exec --no-startup-id xset s off
@@ -210,5 +211,4 @@ bar {
         urgent_workspace   #900000 #900000 #ffffff
     }
 }
-
 
