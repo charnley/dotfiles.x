@@ -1,30 +1,41 @@
 #!/bin/bash
 
+native=LVDS1
+external=DP1
+
 # Make sure native monitor is at max
 # resolution
-xrandr --output LVDS1 --auto
+xrandr --output $native --auto
 
-if [ "$1" == "left" ];
-then
-    xrandr --output DP1 --auto --left-of LVDS1
-fi
+case "$1" in
 
-if [ "$1" == "copy" ];
-then
-    xrandr --output DP1 --auto --same-as LVDS1
-fi
+    "above")
+        xrandr --output $external --auto --above $native
+        ;;
 
-if [ "$1" == "off" ];
-then
-    xrandr --output DP1 --off
-fi
+    "left")
+        xrandr --output $external --auto --left-of $native
+        ;;
 
-if [ "$1" == "" ];
-then
-    echo "Usage: monitor [left|copy|off]"
-    exit
-fi
+    "right")
+        xrandr --output $external --auto --right-of $native
+        ;;
 
-# Retart I3 to get panels back
+    "copy")
+        xrandr --output $external --auto --same-as $native
+        ;;
+
+    "off")
+        xrandr --output $external --off
+        ;;
+
+    *)
+        echo $"Usage: monitor {above|left|right|copy|off}"
+        exit 1
+
+esac
+
+# Restart I3 to get panels back
+# TODO check, still necessary
 i3 restart
 
