@@ -1,6 +1,6 @@
 
 ! Terminal Color scheme
-URxvt*background:            #111111
+URxvt*background:            #121212
 URxvt*foreground:            #CCCCCC
 URxvt*cursorColor:           #999999
 URxvt*colorBD:               #FFFFFF
