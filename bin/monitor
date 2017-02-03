@@ -37,5 +37,5 @@ esac
 
 # Restart I3 to get panels back
 # TODO check, still necessary
-i3 restart
+i3 restart inplace
 
