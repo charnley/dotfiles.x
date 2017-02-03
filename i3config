@@ -1,56 +1,61 @@
 # MTS Configuration
 
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a 
-# complete reference!
+# Inspiration
+# - https://github.com/Plonq/dotfiles/blob/master/i3/.config/i3/config
+# - http://kumarcode.com/Colorful-i3/
+# - http://pastebin.com/tQwS1heu
 
 # Modification Keys:
+#
 # shift       Shift_L (0x31),   Shift_R (0x3d)
 # lock        Caps_Lock (0x41)
 # control     Control_L (0x24), Control_R (0x87)
 # mod1        Alt_L (0x3f),     Alt_R (0x88)
 # mod2        Num_Lock (0x4c)
 # mod3        n/a
-# mod4        n/a
+# mod4        Super (Windows/Cmd key)
 # mod5        n/a
 
 # set $mod to super key
 set $mod Mod4
 
 # Set Font for Window Titles.
-# font xft:Monaco 11
 font xft:mononoki 12
-
-# And now for all the shortcuts:
 
 # Close a window
 bindsym $mod+q kill
 
-# Lock and suspend
-bindsym $mod+o exec i3lock -c 000000 -d & sudo pm-suspend
-
 # Lock Computer
 bindsym $mod+l exec i3lock -c 000000 -d
-bindsym Control+Mod1+L exec i3lock -c 000000 -d
+
+# Lock and suspend
+bindsym $mod+shift+l exec i3lock -c 000000 -d & sudo pm-suspend
 
 # Print Screen = Screenshot
 bindsym Print exec scrot -q 100
 
 # Volume up / down / mute
-bindsym Control+Up           exec amixer -q sset Master 2%+ unmute
-bindsym Control+Down         exec amixer -q sset Master 2%- unmute
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle; exec amixer -q set Headphone unmute; exec amixer -q set Speaker unmute # does not work proberbly
+
+# standard amixer
+# bindsym Control+Up              exec amixer -q sset Master 2%+ unmute
+# bindsym Control+Down            exec amixer -q sset Master 2%- unmute
+# bindsym XF86AudioRaiseVolume    exec amixer -q sset Master 2%+ unmute
+# bindsym XF86AudioLowerVolume    exec amixer -q sset Master 2%- unmute
+# bindsym XF86AudioMute exec amixer -q set Master toggle; exec amixer -q set Headphone unmute; exec amixer -q set Speaker unmute # does not work proberbly
+
+bindsym Control+Up              exec ~/bin/sound "+2"
+bindsym Control+Down            exec ~/bin/sound "-2"
+bindsym XF86AudioRaiseVolume    exec ~/bin/sound "+2"
+bindsym XF86AudioLowerVolume    exec ~/bin/sound "-2"
+bindsym XF86AudioMute           exec ~/bin/sound "mute"
 
 # Hivemind setup
-bindsym Control+Shift+Up exec ~/bin/hivemind_volume up
-bindsym Control+Shift+Down exec ~/bin/hivemind_volume down
+bindsym Control+Shift+Up        exec ~/bin/hivemind_volume up
+bindsym Control+Shift+Down      exec ~/bin/hivemind_volume down
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp     exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown   exec xbacklight -dec 5 # decrease screen brightness
 
 # Do not focus on window, on mouse hover
 focus_follows_mouse no
@@ -71,11 +76,6 @@ bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -b -fn -misc-*-*-*-*-*-18-*-*-*-*-*-*-*
-
-# Disable window bar
-# Don't worry, window-bar is there for tabs and stack
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
 
 # change focus
 bindsym $mod+Left focus left
@@ -145,27 +145,26 @@ bindsym $mod+Shift+E exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # They resize the border in the direction you pressed, e.g.
-        # when pressing left, the window is resized so that it has
-        # more space on its left
+    # They resize the border in the direction you pressed, e.g. when pressing
+    # left, the window is resized so that it has more space on its left
 
-        bindsym Left resize shrink left 10 px
-        bindsym Shift+Left resize grow left 10 px
+    bindsym Left resize shrink left 10 px
+    bindsym Shift+Left resize grow left 10 px
 
-        bindsym Down resize shrink down 10 px or 10 ppt
-        bindsym Shift+Down resize grow down 10 px or 10 ppt
+    bindsym Down resize shrink down 10 px or 10 ppt
+    bindsym Shift+Down resize grow down 10 px or 10 ppt
 
-        bindsym Up resize shrink up 10 px or 10 ppt
-        bindsym Shift+Up resize grow up 10 px or 10 ppt
+    bindsym Up resize shrink up 10 px or 10 ppt
+    bindsym Shift+Up resize grow up 10 px or 10 ppt
 
-        bindsym Right resize shrink right 10 px
-        bindsym Shift+Right resize grow right 10 px
+    bindsym Right resize shrink right 10 px
+    bindsym Shift+Right resize grow right 10 px
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -181,18 +180,25 @@ exec --no-startup-id blueman-applet # Start bluetooth manager
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
-# Set background color
-exec --no-startup-id xsetroot -solid '#222222'
+# Enable power-save
+exec --no-startup-id sudo pm-powersave
 
 # Reset Caps_Lock as Super
 exec --no-startup-id setxkbmap -option caps:hyper
+
+# Set background color
+exec --no-startup-id xsetroot -solid '#222222'
+
+# Disable window bar
+# Don't worry, window-bar is there for tabs and stack
+for_window [class="^.*"] border pixel 2
+new_window 1pixel
 
 # Interface                border    title      color
 client.focused             #0373bb   #0373bb    #ffffff    #2e9ef4
 client.focused_inactive    #222222   #222222    #ffffff    #484e50
 client.unfocused           #222222   #222222    #888888    #292d2e
 client.urgent              #2f343a   #900000    #ffffff    #900000
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
