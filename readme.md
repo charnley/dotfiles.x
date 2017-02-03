@@ -15,3 +15,11 @@ Want to change the apperance of GTK easily? Then apt-get and run
 
     lxappearance
 
+# TODO
+
+    - `termite`
+        Should look into this at some point
+
+    - `https://github.com/powerline/fontpatcher`
+        set this up for mononoki
+
