@@ -191,7 +191,7 @@ exec --no-startup-id xsetroot -solid '#222222'
 
 # Disable window bar
 # Don't worry, window-bar is there for tabs and stack
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
 new_window 1pixel
 
 # Interface                border    title      color

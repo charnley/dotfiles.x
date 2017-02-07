@@ -15,7 +15,7 @@ xterm*colorUL:               #CCCC66
 
 !!BLACK
 *color0:               #666666
-*color8:               #999999
+*color8:               #000000
 !!RED
 *color1:               #CC3366
 *color9:               #FF6699

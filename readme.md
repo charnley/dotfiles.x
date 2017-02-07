@@ -3,6 +3,8 @@
 
 ![Screenshot](https://raw.githubusercontent.com/charnley/dotfiles.x/master/scrot.png)
 
+![Screenshot](https://raw.githubusercontent.com/charnley/dotfiles.x/master/scrot_term.png)
+
 
 I seperated my dotfiles for my X enviroment and terminal stuff. This repo is only for my desktop envirment.
 
