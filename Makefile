@@ -1,5 +1,5 @@
 
-all:
+all: depends symlink_clean symlink bin_folder fonts update
 
 update:
 	xrdb -merge ~/.Xresources
@@ -12,6 +12,14 @@ symlink:
 	ln -s `pwd`/dunstrc ~/.config/dunst/dunstrc
 	ln -s `pwd`/gtkrc-2.0 ~/.gtkrc-2.0
 	ln -s `pwd`/Xresources ~/.Xresources
+
+bin_folder:
+	# Don't overwrite anything
+	for x in bin/*; do \
+		if [ ! -f ~/$$x  ]; then\
+		ln -s `pwd`/$$x ~/$$x;\
+		fi; \
+	done
 
 symlink_clean:
 	rm -rf ~/.i3status.conf ~/.i3  ~/.config/dunst ~/.gtkrc-2.0 ~/.Xresources
