@@ -54,8 +54,8 @@ bindsym Control+Shift+Up        exec ~/bin/hivemind_volume up
 bindsym Control+Shift+Down      exec ~/bin/hivemind_volume down
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp     exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown   exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp     exec xbacklight -inc 2 # increase screen brightness
+bindsym XF86MonBrightnessDown   exec xbacklight -dec 2 # decrease screen brightness
 
 # Do not focus on window, on mouse hover
 focus_follows_mouse no
@@ -182,6 +182,7 @@ exec --no-startup-id xset -dpms
 
 # Enable power-save
 exec --no-startup-id sudo pm-powersave
+exec --no-startup-id sudo powertop --auto-tune
 
 # Reset Caps_Lock as Super
 exec --no-startup-id setxkbmap -option caps:hyper
