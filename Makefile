@@ -14,6 +14,7 @@ symlink:
 	ln -s `pwd`/Xresources ~/.Xresources
 
 bin_folder:
+	mkdir ~/bin
 	# Don't overwrite anything
 	for x in bin/*; do \
 		if [ ! -f ~/$$x  ]; then\
@@ -36,6 +37,7 @@ dropbox:
 	./setup_drobox.sh
 
 fonts:
+	mkdir ~/.fonts
 	./setup_font_monaco.sh
 	./setup_font_menlo.sh
 	./setup_font_mononoki.sh
