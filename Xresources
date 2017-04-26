@@ -44,6 +44,7 @@ xterm*colorUL:               #CCCC66
 ! rxvt-unicode-256-color
 
 URxvt*font: xft:mononoki:size=12:antialias=true
+URxvt.boldFont:
 URxvt*depth: 32
 URxvt*buffered: true
 URxvt*scrollBar: false
@@ -57,7 +58,8 @@ URxvt*borderless: 1
 URxvt.iso14755: False
 URxvt.iso14755_52: false
 ! Spacing issue in rxvt
-URxvt.letterSpace: -1
+! Usually -1 is enough, but I like it tighter
+URxvt.letterSpace: -2
 
 ! Keys
 ! Have Alt/Control-<arrow> behave like xterm
