@@ -3,7 +3,7 @@ general {
     color_good = "#049cfb"
     color_bad = "#cc3366"
     color_degraded = "#999999"
-    interval = 1
+    interval = 3
 }
 
 order += "wireless wlan0"

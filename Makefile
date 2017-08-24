@@ -33,6 +33,11 @@ depends:
 	sudo apt-get install xclip # copy paste for terminal
 	sudo cp rxvt/urxvtclip /usr/lib/urxvt/perl/clipboard
 
+desktop:
+	sudo apt-get install \
+		xbacklight \
+		i3
+
 dropbox:
 	./setup_drobox.sh
 

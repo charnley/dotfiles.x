@@ -25,3 +25,9 @@ Want to change the apperance of GTK easily? Then apt-get and run
     - `https://github.com/powerline/fontpatcher`
         set this up for mononoki
 
+# NOTE
+
+    Usefull commands and programs
+
+    https://gitlab.com/git-latexdiff/git-latexdiff
+

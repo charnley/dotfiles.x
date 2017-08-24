@@ -3,39 +3,52 @@
 native=LVDS1
 external=DP1
 
+# TODO Check for if monitor is disconnected
+# xrandr | grep "$EXT disconnected"
+
 # Make sure native monitor is at max
 # resolution
-xrandr --output $native --auto
+# xrandr --output $native --auto
 
 case "$1" in
 
     "above")
+        xrandr --output $native --auto
         xrandr --output $external --auto --above $native
         ;;
 
     "left")
+        xrandr --output $native --auto
         xrandr --output $external --auto --left-of $native
         ;;
 
     "right")
+        xrandr --output $native --auto
         xrandr --output $external --auto --right-of $native
         ;;
 
     "copy")
+        xrandr --output $native --auto
         xrandr --output $external --auto --same-as $native
         ;;
 
     "off")
+        xrandr --output $native --auto
         xrandr --output $external --off
         ;;
 
+    "dock")
+        xrandr --output $external --auto --above $native
+        xrandr --output $native --off
+        fix_capslock
+        ;;
+
     *)
-        echo $"Usage: monitor {above|left|right|copy|off}"
+        echo $"Usage: monitor {above|left|right|copy|dock|off}"
         exit 1
 
 esac
 
 # Restart I3 to get panels back
-# TODO check, still necessary
-i3 restart inplace
+# i3 restart inplace
 

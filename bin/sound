@@ -61,9 +61,9 @@ if __name__ == "__main__":
     if not "blue" in pactl_info[12]:
         shell('pactl set-default-sink {}'.format(sink))
 
-        # Set default sound volume to 40%
+        # Set default sound volume to 30%
         # so it does not blow my head off
-        change = "40"
+        change = "30"
 
     if change == "info":
         print shell('pactl info')
