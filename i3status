@@ -3,12 +3,18 @@ general {
     color_good = "#049cfb"
     color_bad = "#cc3366"
     color_degraded = "#999999"
-    interval = 3
+    interval = 5
 }
 
+<<<<<<< HEAD
 order += "wireless wlan0"
 # order += "ethernet eth0"
 order += "ethernet eth1"
+=======
+order += "ethernet enxe04f435d2fd2"
+order += "wireless wlp4s0"
+order += "ethernet enp0s31f6"
+>>>>>>> i3 ux update
 order += "path_exists VPN"
 order += "volume master"
 order += "disk /"
@@ -20,6 +26,23 @@ order += "tztime local"
 wireless wlan0 {
     format_up = "(%quality at %essid) %ip"
     format_down = "wlan0"
+}
+
+wireless wlp4s0 {
+    format_up = " (%quality at %essid) %ip "
+    format_down = "wifi "
+}
+
+ethernet enxe04f435d2fd2 {
+    # if you use %speed, i3status requires root privileges
+    format_up = " %ip (%speed) "
+    format_down = " dock "
+}
+
+ethernet enp0s31f6 {
+    # if you use %speed, i3status requires root privileges
+    format_up = " %ip (%speed) "
+    format_down = " lan "
 }
 
 ethernet eth0 {
