@@ -1,7 +1,7 @@
 #!/bin/bash
 
-native=LVDS1
-external=DP1
+native=eDP1
+external=DP1-3
 
 # TODO Check for if monitor is disconnected
 # xrandr | grep "$EXT disconnected"

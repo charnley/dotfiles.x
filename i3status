@@ -6,15 +6,9 @@ general {
     interval = 5
 }
 
-<<<<<<< HEAD
-order += "wireless wlan0"
-# order += "ethernet eth0"
-order += "ethernet eth1"
-=======
 order += "ethernet enxe04f435d2fd2"
 order += "wireless wlp4s0"
 order += "ethernet enp0s31f6"
->>>>>>> i3 ux update
 order += "path_exists VPN"
 order += "volume master"
 order += "disk /"
@@ -88,6 +82,7 @@ disk "/" {
     format = "%avail"
 }
 
+volume master {
     format = " ♪  %volume "
     device = "default"
     mixer = "Master"
