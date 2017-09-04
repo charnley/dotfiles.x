@@ -1,4 +1,8 @@
 
+#define c_highlight #0373bb
+#define c_disabled #5f676a
+#define c_background #333333
+
 ! Terminal Color scheme
 URxvt*background:            #121212
 URxvt*foreground:            #CCCCCC
@@ -46,7 +50,10 @@ xterm*colorUL:               #CCCC66
 URxvt*font: xft:mononoki:size=12:antialias=true
 URxvt.boldFont:
 URxvt*depth: 32
-URxvt*buffered: true
+
+! lag ? URxvt*buffered: true
+URxvt*buffered: false
+
 URxvt*scrollBar: false
 URxvt*loginShell: true
 ! Enable Shift-PageUp/Down in screen
@@ -60,6 +67,7 @@ URxvt.iso14755_52: false
 ! Spacing issue in rxvt
 ! Usually -1 is enough, but I like it tighter
 URxvt.letterSpace: -2
+URxvt.backend: xrender
 
 ! Keys
 ! Have Alt/Control-<arrow> behave like xterm
@@ -185,4 +193,21 @@ xterm*VT100.Translations: #override \
 ! http://www.ibb.net/~anne/keyboard.html
 ! http://superuser.com/questions/453993/xterm-key-translations
 ! http://superuser.com/questions/914817/separate-mappings-for-tab-and-c-i-in-inputrc
+
+
+rofi.color-normal: #273238, c_disabled, #273238, #273238, c_highlight
+!rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+!rofi.color-active: #273238, #80cbc4, #273238, #000000, #ffffff
+rofi.color-window: #273238, #273238, c_highlight
+
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
+rofi.sidebar-mode: false
+rofi.columns: 1
+rofi.padding: 10
+rofi.line-margin: 10
+
+rofi.width: 40
+rofi.lines: 5
 
