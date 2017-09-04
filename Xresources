@@ -52,7 +52,7 @@ URxvt.boldFont:
 URxvt*depth: 32
 
 ! lag ? URxvt*buffered: true
-URxvt*buffered: false
+URxvt*buffered: true
 
 URxvt*scrollBar: false
 URxvt*loginShell: true
@@ -210,4 +210,6 @@ rofi.line-margin: 10
 
 rofi.width: 40
 rofi.lines: 5
+
+rofi.font: Mononoki 12
 
