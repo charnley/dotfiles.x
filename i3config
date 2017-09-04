@@ -75,7 +75,8 @@ bindsym $mod+Shift+Return exec rxvt -e ~/bin/sunray --noclose
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -b -fn -misc-*-*-*-*-*-18-*-*-*-*-*-*-*
+# bindsym $mod+d exec dmenu_run -b -fn -misc-*-*-*-*-*-18-*-*-*-*-*-*-*
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+Left focus left
@@ -172,6 +173,10 @@ bindsym $mod+r mode "resize"
 # AUTOSTART
 # automatically starting applications on i3 startup
 
+# Resoulution
+exec --no-startup-id ~/bin/monitor
+# exec --no-startup-id bash 'xrandr --output "eDP1" --mode "1600x900"'
+
 exec --no-startup-id dropbox start # Start Dropbox
 exec --no-startup-id pactl load-module module-bluetooth-discover # Bluetooth policies
 exec --no-startup-id nm-applet -sm-disable # Start  Network Manager
@@ -181,9 +186,12 @@ exec --no-startup-id blueman-applet # Start bluetooth manager
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
 
+# Disable beep
+exec --no-startup-id xset -b
+
 # Enable power-save
-exec --no-startup-id sudo pm-powersave
-exec --no-startup-id sudo powertop --auto-tune
+# exec --no-startup-id sudo pm-powersave
+# exec --no-startup-id sudo powertop --auto-tune
 
 # Reset Caps_Lock as Super
 exec --no-startup-id setxkbmap -option caps:hyper

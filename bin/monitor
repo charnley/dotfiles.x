@@ -3,14 +3,20 @@
 native=eDP1
 external=DP1-3
 
+native_res=1920x1080
+native_res=1600x900
+
 # TODO Check for if monitor is disconnected
 # xrandr | grep "$EXT disconnected"
 
-# Make sure native monitor is at max
-# resolution
-# xrandr --output $native --auto
+# Make sure xrandr is started
+xrandr >> /dev/null
 
 case "$1" in
+
+    "")
+        xrandr --output $native --mode $native_res
+        ;;
 
     "above")
         xrandr --output $native --auto
@@ -50,5 +56,5 @@ case "$1" in
 esac
 
 # Restart I3 to get panels back
-# i3 restart inplace
+i3-msg restart
 

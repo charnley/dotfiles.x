@@ -6,16 +6,17 @@ general {
     interval = 5
 }
 
-order += "ethernet enxe04f435d2fd2"
 order += "wireless wlp4s0"
-order += "ethernet enp0s31f6"
+order += "ethernet enxe04f435d2fd2"
+#order += "ethernet enp0s31f6"
 order += "path_exists VPN"
 order += "volume master"
 order += "disk /"
 order += "battery 0"
 order += "cpu_temperature 0"
 order += "load"
-order += "tztime local"
+order += "tztime day"
+order += "tztime hour"
 
 wireless wlan0 {
     format_up = "(%quality at %essid) %ip"
@@ -30,7 +31,7 @@ wireless wlp4s0 {
 ethernet enxe04f435d2fd2 {
     # if you use %speed, i3status requires root privileges
     format_up = " %ip (%speed) "
-    format_down = " dock "
+    format_down = " lan "
 }
 
 ethernet enp0s31f6 {
@@ -52,7 +53,18 @@ ethernet eth1 {
 }
 
 battery 0 {
-    format = "%status %percentage %remaining"
+    format = " %status %percentage %remaining "
+    format_down = ""
+    last_full_capacity = true
+    integer_battery_capacity = true
+    low_threshold = 11
+    threshold_type = percentage
+    hide_seconds = true
+    status_chr = "⚡"
+    status_bat = "🔋"
+    status_unk = "🙂"
+    status_full = "💙"
+
 }
 
 run_watch DHCP {
@@ -67,19 +79,23 @@ path_exists VPN {
     # path exists when a VPN tunnel launched by nmcli/nm-applet is active
     path = "/proc/sys/net/ipv4/conf/tun0"
     # format = "vpn %status"
-    format = "vpn"
+    format = " vpn "
 }
 
-tztime local {
-    format = "%Y-%m-%d %H:%M:%S"
+tztime day {
+    format = " %Y-%m-%d "
+}
+
+tztime hour {
+    format = " %H:%M "
 }
 
 load {
-    format = "cpu %1min"
+    format = " cpu %1min "
 }
 
 disk "/" {
-    format = "%avail"
+    format = " %avail "
 }
 
 volume master {
@@ -90,5 +106,5 @@ volume master {
 }
 
 cpu_temperature 0 {
-    format = "%degrees °C"
+    format = " %degrees °C "
 }
