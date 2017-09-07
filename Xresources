@@ -1,21 +1,26 @@
 
-#define c_highlight #0373bb
+! █▓▒░ Colors
+
+#define c_highlight #30a0e8
 #define c_disabled #5f676a
 #define c_background #333333
 
-! Terminal Color scheme
+
+! █▓▒░ Terminal Color Scheme
+
+! urxvt
 URxvt*background:            #121212
 URxvt*foreground:            #CCCCCC
 URxvt*cursorColor:           #999999
 URxvt*colorBD:               #FFFFFF
 URxvt*colorUL:               #CCCC66
 
+! xterm
 xterm*background:            #111111
 xterm*foreground:            #CCCCCC
 xterm*cursorColor:           #999999
 xterm*colorBD:               #FFFFFF
 xterm*colorUL:               #CCCC66
-
 
 !!BLACK
 *color0:               #666666
@@ -43,13 +48,18 @@ xterm*colorUL:               #CCCC66
 *color15:              #FFFFFF
 
 
-! RXVT Settings
-! https://wiki.archlinux.org/index.php/rxvt-unicode
-! rxvt-unicode-256-color
 
+! █▓▒░ urxvt settings
+
+! Set font
 URxvt*font: xft:mononoki:size=12:antialias=true
+
+! Disable bold fonts
+! empty settings should set it
 URxvt.boldFont:
-URxvt*depth: 32
+
+! I dont need transparency, also it makes it lag
+! URxvt*depth: 32
 
 ! lag ? URxvt*buffered: true
 URxvt*buffered: true
@@ -122,6 +132,7 @@ URxvt.perl-ext-common: default,clipboard
 ! URxvt.keysym.Control-0x2d: perl:font-size:decrease
 
 
+! █▓▒░ xterm settings
 ! Xterm Settings
 
 ! Use a nice truetype font and size by default
@@ -147,8 +158,6 @@ xterm*boldFont: fixed
 XTerm*allowBoldFonts: false
 XTerm*boldMode: false
 
-
-
 ! https://awhan.wordpress.com/2010/06/20/alt-key-does-not-work-in-xterm-in-archlinux/
 ! http://www.humbug.in/2010/enable-alt-key-in-xterm/
 ! Key the alt ket working
@@ -157,7 +166,6 @@ XTerm*boldMode: false
 ! XTerm*metaSendsEscape: true
 ! XTerm*eightBitInput: false
 
-!
 ! http://blog.ssokolow.com/archives/2011/05/01/modernizing-xterms-paste/
 !
 ! {{{ Quick Reference
@@ -195,6 +203,7 @@ xterm*VT100.Translations: #override \
 ! http://superuser.com/questions/914817/separate-mappings-for-tab-and-c-i-in-inputrc
 
 
+! █▓▒░ rofi settings
 rofi.color-normal: #273238, c_disabled, #273238, #273238, c_highlight
 !rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 !rofi.color-active: #273238, #80cbc4, #273238, #000000, #ffffff
