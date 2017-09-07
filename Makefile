@@ -6,15 +6,15 @@ update:
 
 symlink:
 	ln -s `pwd`/i3status ~/.i3status.conf
-	mkdir ~/.i3
+	mkdir -p ~/.i3
 	ln -s `pwd`/i3config ~/.i3/config
-	mkdir ~/.config/dunst
+	mkdir -p ~/.config/dunst
 	ln -s `pwd`/dunstrc ~/.config/dunst/dunstrc
 	ln -s `pwd`/gtkrc-2.0 ~/.gtkrc-2.0
 	ln -s `pwd`/Xresources ~/.Xresources
 
 bin_folder:
-	mkdir ~/bin
+	mkdir -p ~/bin
 	# Don't overwrite anything
 	for x in bin/*; do \
 		if [ ! -f ~/$$x  ]; then\
