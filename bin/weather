@@ -1,0 +1,4 @@
+#!/bin/sh
+
+curl -s wttr.in/Copenhagen' -T 'Weather
+
