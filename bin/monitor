@@ -8,6 +8,10 @@ native_res=1600x900
 
 # TODO Check for if monitor is disconnected
 # xrandr | grep "$EXT disconnected"
+# xrandr | grep "connected"
+
+# xrandr --output DP1-3 --auto --left-of eDP1
+
 
 # Make sure xrandr is started
 xrandr >> /dev/null
@@ -15,38 +19,40 @@ xrandr >> /dev/null
 case "$1" in
 
     "")
-        xrandr --output $native --mode $native_res
+        xrandr --output $native --mode $native_res --output $external --off
         ;;
 
     "above")
-        xrandr --output $native --auto
-        xrandr --output $external --auto --above $native
+        # xrandr --output $native --auto
+        # xrandr --output $external --auto --above $native
         ;;
 
     "left")
-        xrandr --output $native --auto
-        xrandr --output $external --auto --left-of $native
+        # xrandr --output $native --auto
+        # xrandr --output $external --auto --left-of $native
         ;;
 
     "right")
-        xrandr --output $native --auto
-        xrandr --output $external --auto --right-of $native
+        # xrandr --output $native --auto
+        # xrandr --output $external --auto --right-of $native
         ;;
 
     "copy")
-        xrandr --output $native --auto
-        xrandr --output $external --auto --same-as $native
+        # xrandr --output $native --auto
+        # xrandr --output $external --auto --same-as $native
         ;;
 
     "off")
-        xrandr --output $native --auto
-        xrandr --output $external --off
+        # xrandr --output $native --auto
+        # xrandr --output $external --off
         ;;
 
     "dock")
-        xrandr --output $external --auto --above $native
-        xrandr --output $native --off
+        # xrandr --output $external --auto --above $native
+        # xrandr --output $native --off
+        xrandr --output $external --auto --output $native --off
         fix_capslock
+        mouse
         ;;
 
     *)
