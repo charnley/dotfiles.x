@@ -3,18 +3,18 @@
 native=eDP1
 external=DP1-3
 
-native_res=1920x1080
+# native_res=1920x1080
 native_res=1600x900
 
-# TODO Check for if monitor is disconnected
-# xrandr | grep "$EXT disconnected"
-# xrandr | grep "connected"
+# Find all external monitors
+# but assumes only one exists
+external=`xrandr  | grep "connected" | grep -v "dis" | grep -v "$native" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/"`
 
-# xrandr --output DP1-3 --auto --left-of eDP1
-
-
-# Make sure xrandr is started
-xrandr >> /dev/null
+if test -z $external
+then
+    # Make sure xrandr is started
+    xrandr >> /dev/null
+fi
 
 case "$1" in
 
@@ -56,6 +56,7 @@ case "$1" in
         ;;
 
     *)
+        echo "Found: $external"
         echo $"Usage: monitor {above|left|right|copy|dock|off}"
         exit 1
 

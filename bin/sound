@@ -125,7 +125,17 @@ if __name__ == "__main__":
             shell('pactl set-sink-volume {} {}%'.format(sink, 0))
 
     else:
+
         sink = dock_id
+
+        if "Dock" not in pactl['Default Sink']:
+            print "not default"
+            shell('pactl set-default-sink {}'.format(sink))
+
+            # Set default sound volume to 30%
+            # so it does not blow my head off
+            change = "30"
+
         shell('pactl set-sink-volume {} {}%'.format(sink, change))
 
 

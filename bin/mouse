@@ -1,15 +1,64 @@
-#!/bin/bash
+#!/usr/bin/env python
 
-external="Logitech M705"
+from subprocess import Popen, PIPE
+import sys
+import numpy
+import re
 
-# xinput | grep "M705"
-# 
-# tutu ~ $ xinput --list-props 14
-# tutu ~ $ xinput --set-prop 14 "libinput Accel
-# 
-# 
-# xinput --set-prop "Logitech USB Optical Mouse"  "Device Accel Constant Deceleration" 2.5
-# 
+def shell(cmd, shell=False):
 
-xinput --set-prop "$external" "libinput Accel Speed" -0.7
+    if shell:
+        p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    else:
+        cmd = cmd.split()
+        p = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE)
 
+    output, err = p.communicate()
+    return output
+
+
+if __name__ == "__main__":
+
+    # Note
+    # xinput
+    # xinput --list-props 14
+    # xinput --set-prop 14 "libinput Accel
+
+    # Define external mouses i want to change
+    externals = ["Logitech M705", "SteelSeries Rival Gaming Mouse"]
+
+    cmd = 'xinput --set-prop {} "libinput Accel Speed" -0.7'
+
+    # Find out if they are connected
+    for external in externals:
+        xinputs = shell('xinput | grep "'+external+'" | grep pointer', shell=True)
+        xinputs = xinputs.split('\n')
+        xinputs = [xinput.strip() for xinput in xinputs]
+
+        # for every id entry, change prop
+        for xinput in xinputs:
+
+            if xinput == "": continue
+
+            # a bit hacky, but whatever
+            xinput = xinput.split('id=')
+            xinput = xinput[-1].split('[')
+            xinput = int(xinput[0])
+
+            shell(cmd.format(xinput), shell=True)
+
+
+
+# # xinput | grep "M705"
+# # 
+# # tutu ~ $ xinput --list-props 14
+# # tutu ~ $ xinput --set-prop 14 "libinput Accel
+# # 
+# # 
+# # xinput --set-prop "Logitech USB Optical Mouse"  "Device Accel Constant Deceleration" 2.5
+# # 
+#
+# xinput --set-prop "$external" "libinput Accel Speed" -0.7
+#
+# xinput --set-prop "SteelSeries Rival Gaming Mouse" "libinput Accel Speed" -0.7
+#
