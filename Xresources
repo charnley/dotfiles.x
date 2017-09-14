@@ -1,4 +1,9 @@
 
+! █▓▒░ Mouse Cursor
+
+Xcursor.size: 24
+
+
 ! █▓▒░ Colors
 
 #define c_highlight #30a0e8
