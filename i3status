@@ -8,6 +8,7 @@ general {
 
 order += "wireless wlp4s0"
 order += "ethernet enxe04f435d2fd2"
+order += "ethernet enxe04f435cf9fb"
 #order += "ethernet enp0s31f6"
 order += "path_exists VPN"
 order += "volume master"
@@ -26,6 +27,12 @@ wireless wlan0 {
 wireless wlp4s0 {
     format_up = " (%quality at %essid) %ip "
     format_down = "wifi "
+}
+
+ethernet enxe04f435cf9fb {
+    # if you use %speed, i3status requires root privileges
+    format_up = " %ip (%speed) "
+    format_down = " lan "
 }
 
 ethernet enxe04f435d2fd2 {
