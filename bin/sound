@@ -39,6 +39,11 @@ if __name__ == "__main__":
     sinks = [sink.strip() for sink in sinks]
     sinks = list(filter(None, sinks))
 
+    cards = shell('pactl list cards short')
+    cards = cards.split('\n')
+    cards = [card.strip() for card in cards]
+    cards = list(filter(None, cards))
+
     pactl_info = shell('pactl info')
     pactl_info = pactl_info.split('\n')
     pactl = {}
@@ -79,14 +84,19 @@ if __name__ == "__main__":
     if len(args) < 1:
         print "Usage: sound <change>"
         print
-        print "found",len(sinks),"sinks:"
-        for sink in sinks:
-            print sink
+        for key in pactl:
+            if "Sink" not in key: continue
+            print key+":", "\n", pactl[key]
 
         print
-        print "settings:"
-        for key in pactl:
-            print "  ", key, "=>", pactl[key]
+        print "found",len(sinks),"sinks:"
+        for sink in sinks:
+            print " ".join(sink.split()[:2])
+
+        print
+        print "found", len(cards), "cards:"
+        for card in cards:
+            print " ".join(card.split()[:2])
 
         quit()
 
