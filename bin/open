@@ -1,4 +1,6 @@
 #!/bin/bash
 
-xdg-open "$1" &> /dev/null &
-
+for x in "$@"
+do
+    xdg-open "$x" &> /dev/null &
+done
