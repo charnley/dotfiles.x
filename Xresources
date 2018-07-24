@@ -81,7 +81,7 @@ URxvt.iso14755: False
 URxvt.iso14755_52: false
 ! Spacing issue in rxvt
 ! Usually -1 is enough, but I like it tighter
-URxvt.letterSpace: -2
+URxvt.letterSpace: -1
 URxvt.backend: xrender
 
 ! Keys
