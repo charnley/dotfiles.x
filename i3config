@@ -32,7 +32,7 @@ bindsym $mod+l exec i3lock -c 000000 -d
 bindsym $mod+shift+l exec i3lock -c 000000 -d & sudo pm-suspend
 
 # Print Screen = Screenshot
-bindsym Print exec scrot -q 100
+bindsym Print exec scrot -u -q 100 ~/img/screenshots/screenshot-%y%m%d-%H%M%S.png
 
 # Volume up / down / mute
 
@@ -66,7 +66,7 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec gnome-terminal
 # NOTE add +aw for no wordwrap in stdout
-bindsym $mod+Return exec rxvt
+bindsym $mod+Return exec rxvt # -e ~/bin/start_tmux --noclose
 
 # start a sunray terminal
 bindsym $mod+Shift+Return exec rxvt -e ~/bin/sunray --noclose
@@ -180,7 +180,7 @@ exec --no-startup-id ~/bin/monitor
 exec --no-startup-id dropbox start # Start Dropbox
 exec --no-startup-id pactl load-module module-bluetooth-discover # Bluetooth policies
 exec --no-startup-id nm-applet -sm-disable # Start  Network Manager
-exec --no-startup-id blueman-applet # Start bluetooth manager
+# exec --no-startup-id blueman-applet # Start bluetooth manager
 
 # Disable Screen saver
 exec --no-startup-id xset s off
@@ -217,7 +217,7 @@ bar {
     status_command i3status
     colors {
         background #222222
-        statusline #dcdcdc
+        statusline #049cfb
         separator  #666666
 
         #                  border  bg      font
