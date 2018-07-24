@@ -24,10 +24,27 @@ if __name__ == "__main__":
     # xinput --list-props 14
     # xinput --set-prop 14 "libinput Accel
 
+    # cmd = 'xinput --set-prop {} "libinput Accel Speed" -0.7'
+    cmd = 'xinput --set-prop {} "libinput Accel Speed" -1.0'
+
+    xrandr = shell('xrandr | grep connected | grep -v dis', shell=True)
+    xrandr = [monitor.strip() for monitor in xrandr.split("\n")[:-1]]
+    for monitor in xrandr:
+        monitor = monitor.split()
+        if "x" not in monitor[2]: continue
+
+        res = monitor[2]
+        res = res.split('x')
+        if res[0] == '2560':
+            cmd = 'xinput --set-prop {} "libinput Accel Speed" -0.8'
+
+        # if res[0] == '1920':
+            # cmd = 'xinput --set-prop {} "libinput Accel Speed" -1.0'
+
+
     # Define external mouses i want to change
     externals = ["Logitech M705", "SteelSeries Rival Gaming Mouse", "PS/2 Generic Mouse"]
 
-    cmd = 'xinput --set-prop {} "libinput Accel Speed" -0.7'
 
     # Find out if they are connected
     for external in externals:
