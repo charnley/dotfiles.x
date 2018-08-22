@@ -1,0 +1,15 @@
+#!/bin/sh
+
+device=$1
+
+if test -z $device; then device=comfort; fi
+
+case $device in
+    comfort )
+        device_mac='04:52:C7:5C:7B:A0';;
+    powerbeats )
+        device_mac='14:BD:61:15:30:77';;
+esac
+
+echo "connect $device_mac\n quit"|bluetoothctl
+
