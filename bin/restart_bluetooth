@@ -1,4 +1,5 @@
 #!/bin/bash
 
 sudo service bluetooth restart
+# /usr/sbin/service bluetooth restart
 
