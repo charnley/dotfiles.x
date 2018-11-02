@@ -29,7 +29,7 @@ bindsym $mod+q kill
 bindsym $mod+l exec i3lock -c 000000 -d
 
 # Lock and suspend
-bindsym $mod+shift+l exec i3lock -c 000000 -d & sudo pm-suspend
+bindsym $mod+shift+l exec i3lock -c 000000 -d & sudo /usr/sbin/pm-suspend
 
 # Print Screen = Screenshot
 bindsym Print exec scrot -u -q 100 ~/img/screenshots/screenshot-%y%m%d-%H%M%S.png
@@ -137,6 +137,19 @@ bindsym $mod+Shift+parenleft move workspace 8
 bindsym $mod+Shift+parenright move workspace 9
 bindsym $mod+Shift+equal move workspace 10
 
+
+# Setup if dual-monitor setup is present
+workspace 1 output HDMI1
+workspace 2 output HDMI1
+workspace 3 output HDMI1
+workspace 4 output HDMI1
+workspace 5 output HDMI1
+workspace 6 output DP2-2
+workspace 7 output DP2-2
+workspace 8 output DP2-2
+workspace 9 output DP2-2
+workspace 10 output DP2-2
+
 # reload the configuration file
 bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -174,7 +187,7 @@ bindsym $mod+r mode "resize"
 # automatically starting applications on i3 startup
 
 # Resoulution
-exec --no-startup-id ~/bin/monitor
+exec --no-startup-id ~/bin/monitor.py -u
 # exec --no-startup-id bash 'xrandr --output "eDP1" --mode "1600x900"'
 
 exec --no-startup-id dropbox start # Start Dropbox
