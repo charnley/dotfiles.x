@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# check if file descriptor of stdin (0) is open or closed
+if test ! -t 0; then
+    input="-"
+else
+    input=$1
+fi
+
+if test "$1" = "-h"; then
+    usage="usage: $(basename "$0") [-h] [hostname]"
+    echo "$usage"
+    exit 0
+fi
+
+if test "$input" = "-"
+then
+
+    while IFS= read line; do
+        echo "${line}"
+    done | cat | xclip -sel clip
+
+else
+
+    if test -z $input;
+    then
+        cat ~/.vbuf | xclip -sel clip
+    else
+        ssh $host "cat ~/.vbuf" | xclip -sel clip
+    fi
+
+fi
