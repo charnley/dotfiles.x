@@ -31,6 +31,15 @@ def shell(cmd, shell=False):
 if __name__ == "__main__":
 
     args = sys.argv[1:]
+    nargs = len(args)
+
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-l', '--list', action="store_true", help='List sinks and cards')
+    parser.add_argument('change', nargs="?", help='Change volume', default="")
+
+    args = parser.parse_args()
+
 
     # shell('notify-send " " "volume changed"', shell=True)
 
@@ -57,31 +66,10 @@ if __name__ == "__main__":
     laptop_speaker_id = 'X'
     bluetooth_headset_id = 'X'
     dock_id = 'X'
-
-    for sink in sinks:
-
-        # bluetooth
-        if "blue" in sink:
-            sink = sink.split()
-            bluetooth_headset_id = sink[0]
-
-        # laptop speaker
-        elif "pci" in sink:
-            sink = sink.split()
-            laptop_speaker_id = sink[0]
-
-        # dock output
-        elif "Dock" in sink:
-            sink = sink.split()
-            dock_id = sink[0]
-
-        else:
-            print "error, not bluetooth or default"
-            print sink
-            quit()
+    dock_name = None
 
 
-    if len(args) < 1:
+    if args.list or nargs == 0:
         print "Usage: sound <change>"
         print
         for key in pactl:
@@ -101,8 +89,45 @@ if __name__ == "__main__":
         quit()
 
 
+
+    for sink in sinks:
+
+        # bluetooth
+        if "blue" in sink:
+            sink = sink.split()
+            bluetooth_headset_id = sink[0]
+
+        # laptop speaker
+        elif "pci" in sink:
+            sink = sink.split()
+            laptop_speaker_id = sink[0]
+
+        # dock output
+        elif "Dock" in sink:
+            sink = sink.split()
+            dock_id = sink[0]
+            dock_name = sink[1]
+
+        # microphone
+        elif "RODE_NT-USB" in sink:
+            # ignore
+            continue
+
+        elif "usb-041e" in sink:
+            sink = sink.split()
+            dock_id = sink[0]
+            dock_name = sink[1]
+
+        else:
+            print "error, not bluetooth or default"
+            print sink
+            quit()
+
+
+
+
     # get change
-    change = args[0]
+    change = args.change
 
     if change == "mute":
         change = 0
@@ -124,7 +149,7 @@ if __name__ == "__main__":
 
             # Set default sound volume to 30%
             # so it does not blow my head off
-            change = "30"
+            change = "36"
 
         shell('pactl set-sink-volume {} {}%'.format(sink, change))
 
@@ -138,13 +163,13 @@ if __name__ == "__main__":
 
         sink = dock_id
 
-        if "Dock" not in pactl['Default Sink']:
+        if pactl['Default Sink'] != dock_name:
             print "not default"
             shell('pactl set-default-sink {}'.format(sink))
 
             # Set default sound volume to 30%
             # so it does not blow my head off
-            change = "30"
+            change = "36"
 
         shell('pactl set-sink-volume {} {}%'.format(sink, change))
 
