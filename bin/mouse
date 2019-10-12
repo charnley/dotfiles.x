@@ -43,7 +43,11 @@ if __name__ == "__main__":
 
 
     # Define external mouses i want to change
-    externals = ["Logitech M705", "SteelSeries Rival Gaming Mouse", "PS/2 Generic Mouse"]
+    externals = [
+        "Logitech M705",
+        "SteelSeries Rival Gaming Mouse",
+        "PS/2 Generic Mouse",
+        "ASUS ROG SPATHA"]
 
 
     # Find out if they are connected
@@ -62,7 +66,8 @@ if __name__ == "__main__":
             xinput = xinput[-1].split('[')
             xinput = int(xinput[0])
 
-            shell(cmd.format(xinput), shell=True)
+            truecmd = cmd.format(xinput)
+            shell(truecmd, shell=True)
 
 
 
