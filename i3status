@@ -12,8 +12,8 @@ general {
 
 order += "wireless wlp4s0"
 order += "ethernet enxe04f435d2fd2"
-#order += "ethernet enxe04f435cf9fb"
-order += "ethernet enx0050b6561b6a"
+order += "ethernet enxe04f435cf9fb"
+#order += "ethernet enx0050b6561b6a"
 #order += "ethernet enp0s31f6"
 order += "path_exists VPN"
 order += "volume master"
