@@ -1,4 +1,4 @@
 #!/bin/sh
 
-curl -s wttr.in/Copenhagen' -T 'Weather
+curl -s wttr.in/Basel' -T 'Weather
 
